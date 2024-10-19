@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background:radial-gradient(circle, rgb(209, 27, 209), rgb(155, 23, 155))
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    /* width: 80%; */
+    /* max-width: 600px; */
+    /* margin-bottom: 20px; */
+   
+}
+
+h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+button {
+    background-color: rgb(111, 23, 114);
+    color: white;
+    border: none;
+    padding:10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(67, 22, 68);;
+}
+
+#game-board {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    width:470px;
+    height:470px;
+    /* margin: 0 auto; */
+    background-color: rgb(136, 4, 136);
+    border-radius: 15px;
+    padding:10px;
+}
+
+.card{
+    width:100px;
+    height:100px;
+    position:relative;
+    cursor:pointer;
+    perspective: 1000px; 
+    padding:10px;
+}
+
+.card .front, .card .back{
+    position:absolute;
+    width:90%;
+    height:90%;
+    border:1px solid rgb(204, 124, 204);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.5rem;
+    backface-visibility: hidden; 
+    transition: transform 0.6s;
+    border-radius:10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card .front{
+    background-color: rgb(218, 85, 211);
+    border-radius: 1rem;
+    transform: rotateY(0deg);
+}
+
+.card .back{
+    background-color: white;
+    transform: rotateY(180deg); 
+}
+
+.card.flipped .front{
+    transform: rotateY(-180deg); 
+}
+
+.card.flipped .back {
+    transform: rotateY(0deg); 
+}
+
+.card .back img {
+    max-width: 90%;  
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 5px;
+  }
